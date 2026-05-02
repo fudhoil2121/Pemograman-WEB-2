@@ -1,0 +1,11 @@
+CREATE DATABASE buku_tamu;
+
+USE buku_tamu;
+
+CREATE TABLE tamu (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nama VARCHAR(50),
+  email VARCHAR(50),
+  pesan TEXT,
+  tanggal TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
