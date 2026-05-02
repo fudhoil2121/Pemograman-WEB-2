@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Contoh Penggunaan UDF</title>
+</head>
+<body>
+
+<!-- Form Input -->
+<form method="POST">
+    Masukkan Bilangan Pertama : <br>
+    <input type="text" name="A" size="10"> <br>
+
+    Masukkan Bilangan Kedua : <br>
+    <input type="text" name="B" size="10"> <br><br>
+
+    <input type="submit" value="Hitung">
+</form>
+
+<?php
+if (isset($_POST['A']) && isset($_POST['B'])) {
+
+    $A = $_POST["A"];
+    $B = $_POST["B"];
+
+    // Function
+    function jumlah($A, $B) {
+        return $A + $B;
+    }
+
+    function kurang($A, $B) {
+        return $A - $B;
+    }
+
+    function kali($A, $B) {
+        return $A * $B;
+    }
+
+    function bagi($A, $B) {
+        if ($B == 0) {
+            return "Tidak bisa dibagi dengan nol";
+        }
+        return $A / $B;
+    }
+
+    echo "<br>Nilai A: $A <br>";
+    echo "Nilai B: $B <br><br>";
+
+    printf("Penjumlahan: %d + %d = %d <br>", $A, $B, jumlah($A, $B));
+    printf("Pengurangan: %d - %d = %d <br>", $A, $B, kurang($A, $B));
+    printf("Perkalian: %d * %d = %d <br>", $A, $B, kali($A, $B));
+
+    echo "<br>Hasil Pembagian:<br>";
+    $hasilBagi = bagi($A, $B);
+
+    if (is_numeric($hasilBagi)) {
+        printf("Pembagian: %d / %d = %d", $A, $B, $hasilBagi);
+    } else {
+        echo $hasilBagi;
+    }
+}
+?>
+
+</body>
+</html>
